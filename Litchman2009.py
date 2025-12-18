@@ -15,7 +15,7 @@ class diatoms:
     '''
     def __init__(self,n_sizes=8,size_range=[2.5,2.5+1.25*8],qinit=0.1,m=0.08,
                  setup=True,
-                 static_v=True,v_const=0.0,z_m=10,a=0.3,Rdeep=40,use_log10=True):
+                 static_v=False,v_const=0.0,z_m=10,a=0.3,Rdeep=40,use_log10=True):
         self.n_sizes = n_sizes
         self.size_range = size_range
         self.use_log10 = use_log10
@@ -60,7 +60,7 @@ class diatoms:
         if Rdeep:
             self.Rdeep = Rdeep
         # Set up arrays for diatom size classes
-        self.sizes = np.linspace(2.5,2.5+1.25*8,self.n_sizes)#.reshape([self.n_sizes,1])
+        self.sizes = np.linspace(self.size_range[0],self.size_range[1],self.n_sizes)
         self.Ns = np.zeros(self.n_sizes)
         #self.Ns = np.zeros([self.n_sizes,1])
         if self.static_v:  # constant sinking velocity
@@ -214,7 +214,7 @@ class diatoms:
         Rax.set_ylabel('Resource (nutrient)')
         Rax.set_xlabel('Time (days)')
         Rax.set_ylim(bottom=0)
-        self.fig1.suptitle(f'Mixing every {self.n_pers} days: 1-Period Time Series')
+        self.fig1.suptitle(f'Mixing every {self.t_mix} days: 1-Period Time Series')
         self.fig1.tight_layout()
         #----------------------------------------
         # Plot period averages across all time
@@ -242,7 +242,7 @@ class diatoms:
         R2ax.set_ylabel('Period-averaged resource (nutrient)')
         R2ax.set_xlabel('Time (days)')
         R2ax.set_ylim(bottom=0)
-        self.fig2.suptitle(f'Mixing every {self.n_pers} days: Period-Averaged Time Series')
+        self.fig2.suptitle(f'Mixing every {self.t_mix} days: Period-Averaged Time Series')
         self.fig2.tight_layout()
 
 
