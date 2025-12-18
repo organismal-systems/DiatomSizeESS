@@ -244,5 +244,6 @@ class diatoms:
         R2ax.set_ylim(bottom=0)
         self.fig2.suptitle(f'Mixing every {self.t_mix} days: Period-Averaged Time Series')
         self.fig2.tight_layout()
+        
 
 
