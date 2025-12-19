@@ -19,3 +19,6 @@ To save figures in svg format:
 D.fig1.savefig('example1.svg')
 D.fig2.savefig('example2.svg')
 ```
+Or, run the Jupyter notebook on Binder by clicking on this button:
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/seastate/DiatomSizeESS/HEAD?urlpath=%2Fdoc%2Ftree%2FDiatomSizeESS.ipynb)
